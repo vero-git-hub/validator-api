@@ -1,5 +1,6 @@
 package com.example.validatorapi.model;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -28,6 +29,7 @@ public class ChargingStation {
 
     @Size(min = 1, max = 8, message = "Station must have 1 to 8 connectors")
     @NotEmpty(message = "Connector list cannot be empty")
+    @Valid
     private List<Connector> connectors;
 
     public Long getId() {
