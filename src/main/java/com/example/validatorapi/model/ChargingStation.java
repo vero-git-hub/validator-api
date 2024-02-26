@@ -1,27 +1,29 @@
 package com.example.validatorapi.model;
 
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 import java.util.List;
 
 public class ChargingStation {
     @NotNull(message = "Identifier cannot be null")
+    @Positive(message = "Identifier must be positive")
     private Long id;
 
     @NotBlank(message = "Title is required for public stations", groups = PublicStation.class)
+    @Size(min = 3, max = 100, message = "Title must be between 3 and 100 characters", groups = PublicStation.class)
     private String title;
 
     @NotBlank(message = "Description is required for public stations", groups = PublicStation.class)
+    @Size(min = 10, max = 500, message = "Description must be between 10 and 500 characters", groups = PublicStation.class)
     private String description;
 
     @NotBlank(message = "Address is required for public stations", groups = PublicStation.class)
+    @Size(min = 10, max = 200, message = "Address must be between 10 and 200 characters", groups = PublicStation.class)
     private String address;
 
     @NotNull(message = "Geo-coordinates are required for public stations", groups = PublicStation.class)
+    @Valid
     private GeoCoordinates geoCoordinates;
 
     @NotNull(message = "Public status must be specified")
