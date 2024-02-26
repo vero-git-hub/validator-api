@@ -4,17 +4,17 @@ import jakarta.validation.constraints.*;
 
 public class Connector {
 
-    @NotNull(message = "Identifier cannot be null")
-    @Positive(message = "Identifier must be positive")
+    @NotNull(message = "{connector.id.notNull}")
+    @Positive(message = "{connector.id.positive}")
     private Long id;
 
-    @NotNull(message = "Type is required")
-    @Pattern(regexp = "CCS|CHAdeMO|Type1|Type2", message = "Must be one of the defined connector types")
+    @NotNull(message = "{connector.type.notNull}")
+    @Pattern(regexp = "CCS|CHAdeMO|Type1|Type2", message = "{connector.type.pattern}")
     private String type;
 
-    @NotNull(message = "Maximum power in kW must be specified")
-    @Min(value = 1, message = "Maximum power must be greater than 0")
-    @Max(value = 1000, message = "Maximum power must not exceed 1000 kW")
+    @NotNull(message = "{connector.maxPower.notNull}")
+    @Min(value = 1, message = "{connector.maxPower.min}")
+    @Max(value = 1000, message = "{connector.maxPower.max}")
     private Integer maxPower;
 
     public Long getId() {

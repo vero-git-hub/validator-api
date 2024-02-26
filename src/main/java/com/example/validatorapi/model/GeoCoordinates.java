@@ -6,14 +6,14 @@ import jakarta.validation.constraints.NotNull;
 
 public class GeoCoordinates {
 
-    @NotNull(message = "Latitude is required")
-    @Min(value = -90, message = "Latitude must be between -90 and 90 degrees")
-    @Max(value = 90, message = "Latitude must be between -90 and 90 degrees")
+    @NotNull(message = "{geo.latitude.notNull}")
+    @Min(value = -90, message = "{geo.latitude.min}")
+    @Max(value = 90, message = "{geo.latitude.max}")
     private Double latitude;
 
-    @NotNull(message = "Longitude is required")
-    @Min(value = -180, message = "Longitude must be between -180 and 180 degrees")
-    @Max(value = 180, message = "Longitude must be between -180 and 180 degrees")
+    @NotNull(message = "{geo.longitude.notNull}")
+    @Min(value = -180, message = "{geo.longitude.min}")
+    @Max(value = 180, message = "{geo.longitude.max}")
     private Double longitude;
 
     public Double getLatitude() {
